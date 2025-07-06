@@ -72,4 +72,7 @@ fi
 
 COMMON_BLOB_ROOT="${LINEAGE_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/proprietary"
 
+# Fix proprietary blobs
+patchelf --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${COMMON_BLOB_ROOT}/vendor/lib64/libwvhidl.so"
+
 "${MY_DIR}/setup-makefiles.sh"
