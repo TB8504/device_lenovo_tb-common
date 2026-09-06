@@ -59,6 +59,11 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.soundtrigger@2.2-impl
 
+# Fix missing msm8953 audio blobs without patching anything
+PRODUCT_SYMLINKS += \
+    $(TARGET_COPY_OUT_VENDOR)/lib/hw/audio.primary.msm8937.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/audio.primary.msm8953.so \
+    $(TARGET_COPY_OUT_VENDOR)/lib64/hw/audio.primary.msm8937.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/audio.primary.msm8953.so
+
 # XML Audio configuration files
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
